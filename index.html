@@ -49,7 +49,7 @@
        ========================================= */
     .hero { height: 80vh; display: flex; align-items: center; justify-content: center; text-align: center; padding-top: 80px; }
     .hero-content h1 { font-size: clamp(45px, 8vw, 80px); color: var(--candy-pink); line-height: 1; margin-bottom: 20px; }
-    .start-btn { display: inline-block; padding: 18px 45px; background: var(--candy-pink); color: white; text-decoration: none; border-radius: 50px; font-weight: 700; box-shadow: 0 10px 25px rgba(255, 183, 197, 0.4); transition: var(--transition); }
+    .start-btn { display: inline-block; padding: 18px 45px; background: var(--candy-pink); color: white; text-decoration: none; border-radius: 50px; font-weight: 700; box-shadow: 0 10px 25px rgba(255, 183, 197, 0.3); transition: var(--transition); }
     .start-btn:hover { background: var(--sky-blue); transform: translateY(-5px); }
 
     /* =========================================
@@ -65,14 +65,26 @@
     .add-btn:hover { background: var(--sky-blue); transform: scale(1.02); }
 
     /* =========================================
-       5. DELIVERY HEROES SECTION (NEW)
+       5. DELIVERY HEROES SECTION (ENHANCED)
        ========================================= */
-    .delivery-section { background: rgba(255, 255, 255, 0.5); padding: 80px 20px; text-align: center; border-radius: 60px; margin: 40px 20px; }
+    .delivery-section { background: rgba(255, 255, 255, 0.5); padding: 80px 20px; border-radius: 60px; margin: 40px 20px; }
+    .delivery-section h2 { font-family: 'Pacifico'; color: var(--candy-pink); font-size: 36px; margin-bottom: 15px; }
+    .delivery-intro { max-width: 700px; margin: 0 auto 50px; color: var(--muted); font-size: 16px; line-height: 1.6; }
+    .delivery-benefits { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto 50px; }
+    .benefit-box { background: white; padding: 25px; border-radius: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+    .benefit-icon { font-size: 40px; margin-bottom: 10px; }
+    .benefit-box h3 { color: var(--candy-pink); margin-bottom: 10px; font-size: 18px; }
+    .benefit-box p { color: var(--muted); font-size: 14px; line-height: 1.5; }
+
     .delivery-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 40px; }
     .rider-card { background: white; padding: 20px; border-radius: 30px; width: 220px; box-shadow: 0 10px 20px rgba(0,0,0,0.03); transition: var(--transition); }
     .rider-card:hover { transform: scale(1.05); }
     .rider-avatar { width: 80px; height: 80px; background: var(--sky-blue); border-radius: 50%; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center; font-size: 40px; }
     .stars { color: #fbc531; font-size: 18px; margin-top: 5px; }
+
+    .delivery-hours { background: linear-gradient(135deg, var(--lavender), var(--sky-blue)); color: white; padding: 20px; border-radius: 20px; margin-top: 40px; text-align: center; max-width: 600px; margin-left: auto; margin-right: auto; }
+    .delivery-hours h4 { margin-bottom: 10px; font-size: 18px; }
+    .delivery-hours p { font-size: 14px; }
 
     /* =========================================
        6. MAP SECTION
@@ -94,7 +106,7 @@
       overflow-y: auto;
     }
     #cart-toggle:checked ~ .cart-sidebar { right: 0; }
-    .cart-icon { position: fixed; bottom: 30px; right: 30px; width: 80px; height: 80px; background: var(--candy-pink); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 40px; cursor: pointer; box-shadow: 0 10px 25px rgba(255, 183, 197, 0.4); transition: 0.3s; z-index: 1999; }
+    .cart-icon { position: fixed; bottom: 30px; right: 30px; width: 80px; height: 80px; background: var(--candy-pink); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 36px; cursor: pointer; box-shadow: 0 10px 25px rgba(255, 183, 197, 0.3); transition: var(--transition); z-index: 1500; }
     .cart-icon:hover { transform: scale(1.1); }
     
     .footer-area { background: white; padding: 80px 20px; border-radius: 60px 60px 0 0; text-align: center; }
@@ -168,30 +180,73 @@
 </div>
 
 <section id="delivery" class="delivery-section">
-  <h2 style="font-family:'Pacifico'; color:var(--candy-pink); font-size:36px;">Our Delivery Heroes</h2>
-  <p>Ready to zoom sprinkles right to your door!</p>
+  <h2>🚀 Our Delivery Service</h2>
+  <p class="delivery-intro">We bring the magic of Dr.Donut straight to your door! Our dedicated delivery team ensures your treats arrive fresh, delicious, and with a smile. Whether you're craving a quick sugar rush or planning a sweet party, we've got you covered.</p>
+  
+  <div class="delivery-benefits">
+    <div class="benefit-box">
+      <div class="benefit-icon">⚡</div>
+      <h3>Super Fast</h3>
+      <p>Express delivery in 20-30 minutes. Your donuts arrive while they're still warm and perfectly fresh!</p>
+    </div>
+    <div class="benefit-box">
+      <div class="benefit-icon">🎯</div>
+      <h3>Precision Tracking</h3>
+      <p>Real-time GPS tracking so you know exactly where your delicious order is at all times.</p>
+    </div>
+    <div class="benefit-box">
+      <div class="benefit-icon">🛡️</div>
+      <h3>Quality Guaranteed</h3>
+      <p>Special insulated packaging keeps donuts at the perfect temperature. Damage guarantee included!</p>
+    </div>
+    <div class="benefit-box">
+      <div class="benefit-icon">🌍</div>
+      <h3>Wide Delivery Area</h3>
+      <p>Serving a 5-mile radius with no minimum order. Bring joy to neighborhoods across the city!</p>
+    </div>
+    <div class="benefit-box">
+      <div class="benefit-icon">💳</div>
+      <h3>Flexible Payment</h3>
+      <p>Pay by card, cash, or digital wallet. We accept all major payment methods for your convenience.</p>
+    </div>
+    <div class="benefit-box">
+      <div class="benefit-icon">🎁</div>
+      <h3>Special Offers</h3>
+      <p>Get rewards points on every delivery! Earn free donuts with our loyalty program.</p>
+    </div>
+  </div>
+
+  <h3 style="font-family:'Pacifico'; color:var(--candy-pink); font-size:28px; margin-top:50px; margin-bottom:30px;">Meet Your Delivery Heroes!</h3>
   <div class="delivery-grid">
     <div class="rider-card">
       <div class="rider-avatar">🛵</div>
       <h3 style="font-size:20px;">Leo</h3>
-      <p style="color:var(--muted); font-size:14px;">Age: 24</p>
+      <p style="color:var(--muted); font-size:14px;">Age: 24 | 2,450 Deliveries</p>
       <div class="stars">★★★★★</div>
-      <p style="font-size:12px; margin-top:10px;">Fastest in the West!</p>
+      <p style="font-size:12px; margin-top:10px;"><strong>Fastest in the West!</strong></p>
+      <p style="font-size:11px; color:var(--muted); margin-top:5px;">Speedy delivery with a professional touch. Leo gets your donuts there lightning-fast!</p>
     </div>
     <div class="rider-card">
       <div class="rider-avatar" style="background:var(--lavender);">🚲</div>
       <h3 style="font-size:20px;">Mimi</h3>
-      <p style="color:var(--muted); font-size:14px;">Age: 21</p>
+      <p style="color:var(--muted); font-size:14px;">Age: 21 | 1,890 Deliveries</p>
       <div class="stars">★★★★☆</div>
-      <p style="font-size:12px; margin-top:10px;">Super Careful & Sweet.</p>
+      <p style="font-size:12px; margin-top:10px;"><strong>Super Careful & Sweet!</strong></p>
+      <p style="font-size:11px; color:var(--muted); margin-top:5px;">Eco-friendly delivery with zero damaged orders. Mimi treats your food like her own!</p>
     </div>
     <div class="rider-card">
       <div class="rider-avatar" style="background:var(--candy-pink);">🛴</div>
       <h3 style="font-size:20px;">Jax</h3>
-      <p style="color:var(--muted); font-size:14px;">Age: 26</p>
+      <p style="color:var(--muted); font-size:14px;">Age: 26 | 3,120 Deliveries</p>
       <div class="stars">★★★★★</div>
-      <p style="font-size:12px; margin-top:10px;">Always has a smile!</p>
+      <p style="font-size:12px; margin-top:10px;"><strong>Always has a smile!</strong></p>
+      <p style="font-size:11px; color:var(--muted); margin-top:5px;">Customer favorite with outstanding service. Jax makes every delivery a delightful experience!</p>
     </div>
+  </div>
+
+  <div class="delivery-hours">
+    <h4>📋 Delivery Hours</h4>
+    <p>Monday - Sunday: 10:00 AM - 10:00 PM | Minimum Delivery: $5.00</p>
   </div>
 </section>
 
@@ -200,7 +255,7 @@
     <h2>Find Us Here 📍</h2>
     <p>Visit our location or track your delivery in real-time!</p>
     <div class="map-frame">
-      <iframe width="100%" height="100%" frameborder="0" style="border:0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.61754302636!2d-73.9856555!3d40.7484405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259b5e9e9e9e9%3A0x9e9e9e9e9e9e9e9e!2sNew%20York%2C%20NY!5e0!3m2!1sen!2sus!4v1234567890" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <iframe width="100%" height="100%" frameborder="0" style="border:0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.61754302636!2d-73.9856555!3d40.7484405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4m13!3e3!4m5!1s0x89c259a9ac6e62fb%3A0xacf60a1a20ebed9c!2sDream%20Bakery%2C%20New%20York!3m2!1d40.748!2d-73.9856!4m5!1s0x89c259a9ac6e62fb%3A0xacf60a1a20ebed9c!2sDream%20Bakery!3m2!1d40.748!2d-73.9856!" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </div>
 </section>
@@ -208,7 +263,7 @@
 <footer class="footer-area">
   <div id="about" class="about-box">
     <h2 style="font-family:'Pacifico'; color:var(--candy-pink); margin-bottom:20px;">About Dr.Donut</h2>
-    <p>Founded by a donut-obsessed doctor (of sprinkles!), we believe that a donut a day keeps the frowns away. Every batch is tasted by our "Chief Happiness Officer" to ensure maximum fluffiness!</p>
+    <p>Founded by a donut-obsessed doctor (of sprinkles!), we believe that a donut a day keeps the frowns away. Every batch is tasted by our "Chief Happiness Officer" to ensure maximum fluffiness! Our mission is to bring happiness through handcrafted donuts and reliable delivery service to everyone in our community.</p>
   </div>
 
   <div id="contact">
