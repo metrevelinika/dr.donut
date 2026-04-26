@@ -49,7 +49,7 @@
        ========================================= */
     .hero { height: 80vh; display: flex; align-items: center; justify-content: center; text-align: center; padding-top: 80px; }
     .hero-content h1 { font-size: clamp(45px, 8vw, 80px); color: var(--candy-pink); line-height: 1; margin-bottom: 20px; }
-    .start-btn { display: inline-block; padding: 18px 45px; background: var(--candy-pink); color: white; text-decoration: none; border-radius: 50px; font-weight: 700; box-shadow: 0 10px 25px rgba(255, 183, 197, 0.3); }
+    .start-btn { display: inline-block; padding: 18px 45px; background: var(--candy-pink); color: white; text-decoration: none; border-radius: 50px; font-weight: 700; box-shadow: 0 10px 25px rgba(255, 183, 197, 0.4); transition: var(--transition); }
     .start-btn:hover { background: var(--sky-blue); transform: translateY(-5px); }
 
     /* =========================================
@@ -106,7 +106,7 @@
       overflow-y: auto;
     }
     #cart-toggle:checked ~ .cart-sidebar { right: 0; }
-    .cart-icon { position: fixed; bottom: 30px; right: 30px; width: 80px; height: 80px; background: var(--candy-pink); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 30px; box-shadow: 0 5px 20px rgba(255, 183, 197, 0.4); transition: 0.3s; }
+    .cart-icon { position: fixed; bottom: 30px; right: 30px; width: 80px; height: 80px; background: var(--candy-pink); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 35px; cursor: pointer; box-shadow: 0 10px 25px rgba(255, 183, 197, 0.3); transition: var(--transition); z-index: 1999; }
     .cart-icon:hover { transform: scale(1.1); }
     
     .footer-area { background: white; padding: 80px 20px; border-radius: 60px 60px 0 0; text-align: center; }
@@ -115,7 +115,7 @@
     input, textarea { width: 100%; padding: 15px; margin-bottom: 10px; border: 2px solid #f0f0f0; border-radius: 15px; font-family: inherit; }
     input:focus, textarea:focus { border-color: var(--candy-pink); background: #fffcf9; }
 
-    #toast { visibility: hidden; background: var(--sky-blue); color: var(--text); padding: 15px 30px; position: fixed; left: 50%; bottom: 30px; transform: translateX(-50%); border-radius: 50px; z-index: 3000; }
+    #toast { visibility: hidden; background: var(--sky-blue); color: var(--text); padding: 15px 30px; position: fixed; left: 50%; bottom: 30px; transform: translateX(-50%); border-radius: 50px; z-index: 3000; box-shadow: 0 10px 25px rgba(167, 219, 237, 0.3); }
     #toast.show { visibility: visible; animation: popUp 0.5s; }
     @keyframes popUp { from {opacity: 0; transform: translate(-50%, 20px);} to {opacity: 1; transform: translate(-50%, 0);} }
 
@@ -127,6 +127,9 @@
     .checkout-btn:disabled { background: #ccc; cursor: not-allowed; transform: scale(1); }
 
     .empty-cart-msg { text-align: center; color: var(--muted); margin-top: 50px; font-size: 16px; }
+    
+    .owner-info { background: rgba(255, 183, 197, 0.1); padding: 15px; border-radius: 15px; margin-bottom: 20px; border-left: 4px solid var(--candy-pink); }
+    .owner-info p { color: var(--muted); margin: 5px 0; font-size: 14px; }
   </style>
 </head>
 <body>
@@ -181,7 +184,7 @@
 
 <section id="delivery" class="delivery-section">
   <h2>🚀 Our Delivery Service</h2>
-  <p class="delivery-intro">We bring the magic of Dr.Donut straight to your door! Our dedicated delivery team ensures your treats arrive fresh, delicious, and with a smile. Whether you're craving a quick treat or planning a party, we've got you covered!</p>
+  <p class="delivery-intro">We bring the magic of Dr.Donut straight to your door! Our dedicated delivery team ensures your treats arrive fresh, delicious, and with a smile. Whether you're craving a quick treat or a box of assorted donuts, we've got you covered!</p>
   
   <div class="delivery-benefits">
     <div class="benefit-box">
@@ -255,7 +258,7 @@
     <h2>Find Us Here 📍</h2>
     <p>Visit our location or track your delivery in real-time!</p>
     <div class="map-frame">
-      <iframe width="100%" height="100%" frameborder="0" style="border:0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.61754302636!2d-73.9856555!3d40.7484405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a23e6c93b63%3A0x6c4249b5b24a1a1e!2sNew%20York%2C%20NY!5e0!3m2!1sen!2sus!4v1234567890" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <iframe width="100%" height="100%" frameborder="0" style="border:0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.61754302636!2d-73.9856555!3d40.7484405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4m3!3m2!1d40.7484405!2d-73.9856555!5e0!3m2!1sen!2sus!4v1234567890"></iframe>
     </div>
   </div>
 </section>
@@ -263,16 +266,20 @@
 <footer class="footer-area">
   <div id="about" class="about-box">
     <h2 style="font-family:'Pacifico'; color:var(--candy-pink); margin-bottom:20px;">About Dr.Donut</h2>
-    <p>Founded by a donut-obsessed doctor (of sprinkles!), we believe that a donut a day keeps the frowns away. Every batch is tasted by our "Chief Happiness Officer" to ensure maximum fluffiness! Our mission is to bring sweetness, joy, and deliciousness to every corner of the city. 🍩✨</p>
+    <p>Founded by a donut-obsessed doctor (of sprinkles!), we believe that a donut a day keeps the frowns away. Every batch is tasted by our "Chief Happiness Officer" to ensure maximum fluffiness and sprinkle distribution! Our mission is to bring happiness, one delicious donut at a time.</p>
   </div>
 
   <div id="contact">
     <h2 style="margin-bottom:30px;">Contact Support</h2>
+    <div class="owner-info">
+      <p><strong>Owner:</strong> <span id="owner-name">Loading...</span></p>
+      <p><strong>Contact ID:</strong> <span id="owner-id">Loading...</span></p>
+    </div>
     <div class="contact-form">
-      <input type="text" placeholder="Your Name">
-      <input type="email" placeholder="Email Address">
-      <textarea placeholder="How can we help?"></textarea>
-      <button class="add-btn">Send Support Ticket</button>
+      <input type="text" id="support-name" placeholder="Your Name">
+      <input type="email" id="support-email" placeholder="Email Address">
+      <textarea id="support-message" placeholder="How can we help?"></textarea>
+      <button class="add-btn" onclick="sendSupportTicket()">Send Support Ticket</button>
     </div>
     <p style="margin-top:40px; font-size:12px; opacity:0.6;">© 2026 Dr.Donut | Dreamland Bakery 💕</p>
   </div>
@@ -302,6 +309,15 @@
 <script>
   let cart = [];
 
+  // Random owner name and ID
+  const firstNames = ['Dr. Sweet', 'Chef', 'Master', 'Maestro', 'Professor'];
+  const lastNames = ['Sprinkles', 'Glaze', 'Crunch', 'Fluffy', 'Sugar'];
+  const randomOwnerName = firstNames[Math.floor(Math.random() * firstNames.length)] + ' ' + lastNames[Math.floor(Math.random() * lastNames.length)];
+  const randomOwnerID = 'DRD-' + Math.random().toString(36).substr(2, 9).toUpperCase();
+
+  document.getElementById('owner-name').textContent = randomOwnerName;
+  document.getElementById('owner-id').textContent = randomOwnerID;
+
   function addToCart(name, price) {
     const item = cart.find(i => i.name === name);
     if(item) { item.qty++; } else { cart.push({name, price, qty: 1}); }
@@ -327,6 +343,36 @@
     cart = [];
     updateUI();
     document.getElementById('cart-toggle').checked = false;
+  }
+
+  function sendSupportTicket() {
+    const name = document.getElementById('support-name').value.trim();
+    const email = document.getElementById('support-email').value.trim();
+    const message = document.getElementById('support-message').value.trim();
+
+    if (!name || !email || !message) {
+      alert("⚠️ Please fill in all fields!");
+      return;
+    }
+
+    if (!email.includes('@')) {
+      alert("⚠️ Please enter a valid email address!");
+      return;
+    }
+
+    const ticketID = 'TKT-' + Date.now();
+    const toast = document.getElementById("toast");
+    toast.textContent = `✅ Support ticket #${ticketID} sent! We'll get back to you soon!`;
+    toast.className = "show";
+    
+    setTimeout(() => { 
+      toast.className = ""; 
+      toast.textContent = "Added to your basket! (~˘▾˘)~";
+    }, 4000);
+
+    document.getElementById('support-name').value = '';
+    document.getElementById('support-email').value = '';
+    document.getElementById('support-message').value = '';
   }
 
   function updateUI() {
